@@ -16,22 +16,12 @@
         <meta name="description" content="Latest updates and statistic charts">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!--begin::Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">        <!--end::Fonts -->
 
-                    <!--begin::Page Vendors Styles(used by this page) -->
-                            <link href="<?php echo base_url()?>/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
-                        <!--end::Page Vendors Styles -->
-        
-        
-        <!--begin::Global Theme Styles(used by all pages) -->
-       
-                    <link href="<?php echo base_url()?>/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-                    <link href="<?php echo base_url()?>/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+
+<link href="<?php echo base_url()?>/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo base_url()?>/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
                 <!--end::Global Theme Styles -->
-<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/data/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>asset/data/dataTables.bootstrap4.min.css"/>
- 
+
         <!--begin::Layout Skins(used by all pages) -->
                 <!--end::Layout Skins -->
 
@@ -80,7 +70,6 @@
     })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

@@ -28,6 +28,7 @@ class Login_m extends CI_Model {
                     'EMAIL' =>$row->EMAIL,                  
                     'LEVEL'=>$row->LEVEL,
                     'IDWIL'=>$row->IDWIL,
+                    'type'=>0
                 
     			 );
     		}

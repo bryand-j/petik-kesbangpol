@@ -271,187 +271,184 @@
 		</div>
 		<div class="kt-portlet__head-toolbar">
 			<ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-brand" role="tablist">
-				<li class="nav-item">
-					<a class="nav-link active" data-toggle="tab" href="#kt_widget2_tab1_content" role="tab">
-					Hari Ini
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#kt_widget2_tab2_content" role="tab">
-					Minggu Ini
-					</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" data-toggle="tab" href="#kt_widget2_tab3_content" role="tab">
-					Bulan ini
-					</a>
-				</li>
-			</ul>
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#kt_widget2_tab1_content" role="tab">
+                    Hari Ini
+                    </a>
+                    <span class="kt-badge kt-badge--danger" style="margin-right:20px; margin-top: 10px;">2</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_widget2_tab2_content" role="tab">
+                    Minggu Ini
+                    </a>
+                    <span class="kt-badge kt-badge--danger" style="margin-right:20px; margin-top: 10px;">3+</span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#kt_widget2_tab3_content" role="tab">
+                    Bulan ini
+                    </a>
+                    <span class="kt-badge kt-badge--danger" style="margin-right:20px; margin-top: 10px;">4+</span>
+                </li>
+            </ul>
 		</div>
 	</div>
 	<div class="kt-portlet__body">
-		<div class="tab-content">
-			<div class="tab-pane active" id="kt_widget2_tab1_content">
-				<div class="kt-widget2">
+        <div class="tab-content">
+            <div class="tab-pane active" id="kt_widget2_tab1_content">
+                <div class="kt-widget2">
 
-					<?php foreach ($hari as $Hari): ?>
-					<div class="kt-widget2__item kt-widget2__item--danger">
-						<div class="kt-widget2__checkbox">							
-						</div>
-						<div class="kt-widget2" style="width: 100%;">
-							<p class="kt-widget2__title" style=" width: 100%;">
-								<b><?php echo $Hari->NAMA ?></b> 
-							</p>							 
-							<p class="kt-widget2__username">
-								<div style="float: left; width:30%; display: inline-block;">Bidang</div> <div style="float: right; width: 70%; display: inline-block;"> : <?php echo $Hari->BIDANG ?> </div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Kab/Kota</div><div style="float: right; width: 70%;"> : <?php echo $Hari->KABUPATEN ?></div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Status</div><div style="float: right; width: 70%;"> : <?php echo $Hari->STATUS ?></div>
-							</p>							 	 
-						</div>
-						<div class="kt-widget2__actions">
-							<a href="#" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown">
-								<i class="flaticon-more-1"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
-								<ul class="kt-nav">
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-								            <span class="kt-nav__link-text">Reports</span>
-								        </a>
-								    </li>
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-send"></i>
-								            <span class="kt-nav__link-text">Messages</span>
-								        </a>
-								    </li>
-
-								</ul>							
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
+                    <?php foreach ($hari as $Hari): ?>
+                    <div class="kt-widget2__item kt-widget2__item--danger">
+                        <div class="kt-widget2__checkbox">                          
+                        </div>
+                        <div class="">
+                            <p class="kt-widget2__title">
+                                <b><?php echo $Hari->NAMA ?></b> 
+                            </p>                             
+                            <table>
+                            <thead>
+                                <tr>
+                                    <th>Bidang</th>
+                                    <th>:</th>
+                                    <th><?php echo $Hari->BIDANG ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Kab/ kota</th>
+                                    <th>:</th>
+                                    <th><?php echo $Hari->KABUPATEN ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>:</th>
+                                    <th>
+                                        <?php if ($Hari->STATUS=='2'): ?>
+                                           <span class="kt-badge kt-badge--warning  kt-badge--inline kt-badge--pill">Rawan</span>
+                                        <?php else: ?>
+                                            <span class="kt-badge kt-badge--success  kt-badge--inline kt-badge--pill">Tidak Rawan</span>
+                                        <?php endif ?>
+                                    </th>
+                                </tr>
+                                        
+                            </thead>
+                            </table>                             
+                        </div>
+                        <div class="kt-widget2__actions">
+                            
+                        </div>
+                    </div>
+                <?php endforeach; ?>
 
 
 
 
-				</div>            
-			</div>
+                </div>            
+            </div>
 
-			<div class="tab-pane" id="kt_widget2_tab2_content">
-				<div class="kt-widget2">
-		
+            <div class="tab-pane" id="kt_widget2_tab2_content">
+                <div class="kt-widget2">
+        
 
-			<?php foreach ($minggu as $minggu): ?>
-					<div class="kt-widget2__item kt-widget2__item--danger">
-						<div class="kt-widget2__checkbox">							
-						</div>
-							<div class="kt-widget2" style="width: 100%;">
-							<p class="kt-widget2__title" style=" width: 100%;">
-								<b><?php echo $minggu->NAMA ?></b> 
-							</p>							 
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Bidang</div> <div style="float: right; width: 70%;"> : <?php echo $minggu->BIDANG ?> </div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Kab/Kota</div><div style="float: right; width: 70%;"> : <?php echo $minggu->KABUPATEN ?></div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Status</div><div style="float: right; width: 70%;"> : <?php echo $minggu->STATUS ?></div>
-							</p>							 	 
-						</div>
-						<div class="kt-widget2__actions">
-							<a href="#" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown">
-								<i class="flaticon-more-1"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
-								<ul class="kt-nav">
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-								            <span class="kt-nav__link-text">Reports</span>
-								        </a>
-								    </li>
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-send"></i>
-								            <span class="kt-nav__link-text">Messages</span>
-								        </a>
-								    </li>
+            <?php foreach ($minggu as $minggu): ?>
+                    <div class="kt-widget2__item kt-widget2__item--danger">
+                        <div class="kt-widget2__checkbox">                          
+                        </div>
+                        <div class="">
+                            <p class="kt-widget2__title">
+                                <b><?php echo $minggu->NAMA ?></b> 
+                            </p>                             
+                            <table>
+                            <thead>
+                                <tr>
+                                    <th>Bidang</th>
+                                    <th>:</th>
+                                    <th><?php echo $minggu->BIDANG ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Kab/ kota</th>
+                                    <th>:</th>
+                                    <th><?php echo $minggu->KABUPATEN ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>:</th>
+                                    <th>
+                                        <?php if ($minggu->STATUS=='2'): ?>
+                                           <span class="kt-badge kt-badge--warning  kt-badge--inline kt-badge--pill">Rawan</span>
+                                        <?php else: ?>
+                                            <span class="kt-badge kt-badge--success  kt-badge--inline kt-badge--pill">Tidak Rawan</span>
+                                        <?php endif ?>
+                                    </th>
+                                </tr>
+                                        
+                            </thead>
+                            </table>                                 
+                        </div>
+                        <div class="kt-widget2__actions">
+                            
+                        </div>
+                    </div>
+                <?php endforeach; ?>
 
-								</ul>							
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
-
-				
+                
 
 
 
-				</div>	
-			</div>	
+                </div>  
+            </div>  
 
-			<div class="tab-pane" id="kt_widget2_tab3_content">
-				<div class="kt-widget2">
-
-
-				<?php foreach ($bulan as $bulanS): ?>
-					<div class="kt-widget2__item kt-widget2__item--danger">
-						<div class="kt-widget2__checkbox">							
-						</div>
-						<div class="kt-widget2" style="width: 100%;">
-							<p class="kt-widget2__title" style=" width: 100%;">
-								<b><?php echo $bulanS->NAMA ?></b> 
-							</p>							 
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Bidang</div> 
-								<div style="float: right; width: 70%; "> : <?php echo $bulanS->BIDANG ?> </div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Kab/Kota</div>
-								<div style="float: right; width: 70%;"> : <?php echo $bulanS->KABUPATEN ?></div>
-							</p>	
-							<p class="kt-widget2__username">
-								<div style="float: left; width: 30%;">Status</div>
-								<div style="float: right; width: 70%;"> : <?php echo $bulanS->STATUS ?></div>
-							</p>							 	 
-						</div>
-						<div class="kt-widget2__actions">
-							<a href="#" class="btn btn-clean btn-sm btn-icon btn-icon-md" data-toggle="dropdown">
-								<i class="flaticon-more-1"></i>
-							</a>
-							<div class="dropdown-menu dropdown-menu-fit dropdown-menu-right">
-								<ul class="kt-nav">
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-line-chart"></i>
-								            <span class="kt-nav__link-text">Reports</span>
-								        </a>
-								    </li>
-								    <li class="kt-nav__item">
-								        <a href="#" class="kt-nav__link">
-								            <i class="kt-nav__link-icon flaticon2-send"></i>
-								            <span class="kt-nav__link-text">Messages</span>
-								        </a>
-								    </li>
-
-								</ul>							
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
+            <div class="tab-pane" id="kt_widget2_tab3_content">
+                <div class="kt-widget2">
 
 
-				</div>
-			</div>		
-		</div>
-	</div>
+                <?php foreach ($bulan as $bulanS): ?>
+                    <div class="kt-widget2__item kt-widget2__item--danger">
+                        <div class="kt-widget2__checkbox">                          
+                        </div>
+                        <div class="kt-widget2" style="width: 100%;">
+                            <p class="kt-widget2__title" style=" width: 100%;">
+                                <b><?php echo $bulanS->NAMA ?></b> 
+                            </p>
+                            <table>
+                            <thead>
+                                <tr>
+                                    <th>Bidang</th>
+                                    <th>:</th>
+                                    <th><?php echo $bulanS->BIDANG ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Kab/ kota</th>
+                                    <th>:</th>
+                                    <th><?php echo $bulanS->KABUPATEN ?></th>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>:</th>
+                                    <th>
+                                        <?php if ($bulanS->STATUS=='2'): ?>
+                                           <span class="kt-badge kt-badge--warning  kt-badge--inline kt-badge--pill">Rawan</span>
+                                        <?php else: ?>
+                                            <span class="kt-badge kt-badge--success  kt-badge--inline kt-badge--pill">Tidak Rawan</span>
+                                        <?php endif ?>
+                                    </th>
+                                </tr>
+                                        
+                            </thead>
+                            </table>                         
+                                
+                                
+                                                             
+                        </div>
+                        <div class="kt-widget2__actions">
+                            
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+
+                </div>
+            </div>      
+        </div>
+    </div>
 </div>
 <!--end:: Widgets/Tasks -->
     </div>

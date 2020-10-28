@@ -33,14 +33,14 @@
 		</div>
 	</div>
 	<!--begin::Form-->
-	<form class="kt-form kt-form--fit kt-form--label-right" method="post" action="<?=base_url()?>admin/berita/update">
+	<form class="kt-form kt-form--fit kt-form--label-right" method="post" action="<?=base_url()?>operator/berita/update">
 		<div class="kt-portlet__body">
 
-			<input type="text" name="id" value="<?=$select->IDTRXANGKET?>" hidden>
+			<input type="text" name="id" id="id-ang" value="<?=$select->IDTRXANGKET?>" hidden>
 			<div class="form-group ">
 				<label>Pilih Konflik</label>	
 				
-				<select class="form-control kt-select2" id="kt_select2_1" name="id" disabled>
+				<select class="form-control " name="id" disabled>
 					<option value="<?=$select->IDTRXANGKET?> "><?=$select->TGLANGKET?> - <?=$select->NMANGKET?></option>	
 				</select>
 				
@@ -59,8 +59,8 @@
 		<div class="kt-portlet__foot">
 			<div class="row">
 				<div class="col-lg-9">
-					<button type="submit" class="btn btn-brand">Simpan</button>
-					<a href="<?=base_url()?>admin/berita/index" class="btn btn-secondary">Batal</a>
+					<button type="submit"  class="btn btn-brand cekdata">Simpan</button>
+					<a href="<?=base_url()?>Operator/berita/index" class="btn btn-secondary">Batal</a>
 				</div>
 			</div>
 		</div>

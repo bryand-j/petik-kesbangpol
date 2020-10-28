@@ -6,6 +6,7 @@ class Peta extends CI_Controller {
 	
 	public function index()
 	{
+		$this->load->helper('color');
 		$data['wilayah'] = $this->db->get('m_kecamatan')->result();
 		$data['konflik'] = $this->db->get('m_btkangket')->result();
 		$data['kab'] = $this->db->get('m_kabkota')->result();
@@ -14,8 +15,8 @@ class Peta extends CI_Controller {
 		file_put_contents('myfile.json', $json_data);	
 		$data['kordinat'] = "-10.4904256,122.4295641";
 		$data['zoom'] = 7.4;	
-		$data['jml_kon_wil'] = 0;	
-		$data['hari'] = $this->db->query("SELECT
+		$data['jml_kon_wil'] = 0;
+		$hari=	$this->db->query("SELECT
 											  tr_angket.NMANGKET   AS NAMA,
 											  m_status.NMSTATUS    AS STATUS,
 											  m_kecamatan.NMKEC    AS KECAMATAN,
@@ -30,65 +31,12 @@ class Peta extends CI_Controller {
 											    LEFT JOIN m_btkangket
 											      ON m_btkangket.IDBENTUK = tr_angket.IDBENTUK
 											   LEFT JOIN m_status
-											     ON m_status.IDSTATUS = tr_angket.STATUS WHERE DATE(tr_angket.TGLANGKET) = DATE(NOW())")->result();	
+											     ON m_status.IDSTATUS = tr_angket.STATUS WHERE DATE(tr_angket.TGLANGKET) = DATE(NOW())");
+		$data['hari'] = $hari->result();
+		$data['totalkonfhari']= $hari->num_rows();	
 		// $this->load->view('h_peta', $data);		
 		$this->load->view('peta', $data);
 
-		// if (isset($_POST['submit'])) {
-		// 	if($_POST['wilayah'] != "all"){
-		// 		$wil = $_POST['wilayah'];
-		// 		$konf = $_POST['konflik'];	
-
-		// 		$data['kabus'] = $this->db->query("SELECT * FROM m_kabkota WHERE IDWIL = '$wil'")->row();
-		// 		$data['konfs'] = $this->db->query("SELECT * FROM m_btkangket WHERE IDBENTUK = '$konf'")->row();
-		// 		$data['kec'] =  $this->db->query("SELECT IDKEC, NMKEC, WARNAKEC, GJSONKEC, m_kabkota.WARNAK FROM m_kecamatan LEFT JOIN m_kabkota ON m_kecamatan.IDKAB = m_kabkota.IDWIL WHERE m_kecamatan.IDKAB = '$wil'")->result();
-
-		// 		$dataW = $this->db->query("SELECT IDWIL, NMWIL, KORDKAB, ZOOMVK FROM m_kabkota  WHERE IDWIL = '$wil'")->row();
-		// 		$dataJ = $this->db->query("SELECT COUNT(IDTRXANGKET) AS JML_KONFLIK FROM tr_angket WHERE IDKEC = '$wil' AND IDBENTUK = '$konf'")->row();
-		// 		$data['wil'] =  $_POST['wilayah'];
-		// 		$data['jml_kon_wil'] = $dataJ->JML_KONFLIK;
-		// 		$data['kordinat'] = $dataW->KORDKAB;
-		// 		$data['zoom'] = $dataW->ZOOMVK;		
-		// 		$data['bentuk'] = $konf;
-
-		// 		$this->load->view('h_peta', $data);	
-		// 		$this->load->view('peta-wilayah', $data);
-		// 	}
-		// 	else if($_POST['wilayah'] == "all"){
-		// 		$konf = $_POST['konflik'];
-		// 		$data['konfs'] = $this->db->query("SELECT * FROM m_btkangket WHERE IDBENTUK = '$konf'")->row();
-		// 		$data['kab'] = $this->db->get('m_kabkota')->result();											
-		// 		$dataJ = $this->db->query("SELECT MAX(a.JMLKONFLIK) AS MAXM FROM (SELECT COUNT(IDTRXANGKET) AS JMLKONFLIK FROM tr_angket 
-  //                                       LEFT JOIN m_kecamatan ON m_kecamatan.IDKEC =tr_angket.IDKEC 
-  //                                       LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' GROUP BY m_kabkota.IDWIL)a ")->row();
-		// 		if ( $dataJ->MAXM > 0) {
-		// 			$data['max'] = $dataJ->MAXM;
-		// 		}
-		// 		else {
-		// 			$data['max'] = 0;
-		// 		}
-		// 		$data['max'] = $dataJ->MAXM;
-		// 		$data['kordinat'] = "-10.4904256,122.4295641";
-		// 		$data['zoom'] = "7.4";		
-		// 		$data['bentuk'] = $konf;				
-		// 		$data['bentukid'] = $konf;
-		// 		$this->load->view('h_peta', $data);	
-		// 		$this->load->view('provinsi', $data);
-		// 	}
-		// }
-		// else { 
-		// $data['wilayah'] = $this->db->get('m_kecamatan')->result();
-		// $data['konflik'] = $this->db->get('m_btkangket')->result();
-		// $data['kab'] = $this->db->get('m_kabkota')->result();
-		// $posts = $data['kab'];
-		// $json_data = json_encode($posts);
-		// file_put_contents('myfile.json', $json_data);
-		
-		// $data['kordinat'] = "-10.4904256,122.4295641";
-		// $data['zoom'] = 7.4;	
-		// $data['jml_kon_wil'] = 0;	
-		// $this->load->view('peta', $data);
-		// }
 	}
 
 
@@ -135,6 +83,12 @@ class Peta extends CI_Controller {
 				$data['kordinat'] = $dataW->KORDKAB;
 				$data['zoom'] = 8;		
 				$data['bentuk'] = $konf;
+				$dataJ = $this->db->query("SELECT MAX(a.JMLKONFLIK) AS MAXM FROM (SELECT COUNT(IDTRXANGKET) AS JMLKONFLIK FROM tr_angket 
+                                        LEFT JOIN m_kecamatan ON m_kecamatan.IDKEC =tr_angket.IDKEC 
+                                        LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' GROUP BY m_kabkota.IDWIL)a ")->row();
+				$data['total']= $this->db->query("SELECT * FROM tr_angket 
+                                        LEFT JOIN m_kecamatan ON m_kecamatan.IDKEC =tr_angket.IDKEC 
+                                        LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' AND m_kecamatan.IDKAB = '$wil'")->num_rows();
 				$this->load->view('h_peta', $data);
 				$this->load->view('peta-wilayah', $data);
 				}
@@ -152,11 +106,13 @@ class Peta extends CI_Controller {
 				else {
 					$data['max'] = 0;
 				}
+				
 				$data['max'] = $dataJ->MAXM;
 				$data['kordinat'] = "-10.4904256,122.4295641";
 				$data['zoom'] = "7.4";		
 				$data['bentuk'] = $konf;				
 				$data['bentukid'] = $konf;
+				$data['total']= $dataJ->MAXM;
 				$this->load->view('h_peta', $data);
 				$this->load->view('provinsi', $data);
 			}

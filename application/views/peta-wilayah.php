@@ -21,7 +21,7 @@
     <div class="form-group " align="left">
                    <!--  <label for="exampleFormControlSelect2">Default select</label> -->
                     <select  align="left" name="konflik" class="form-control select2  col-md-6"  id="exampleFormControlSelect2">
-                       <option selected value="<?=$konfs->IDBENTUK?>"> <?=$konfs->NMBENTUK?></option>
+                       <?= ($konfs->IDBENTUK) ? '<option selected value="'.$konfs->IDBENTUK.'"> '.$konfs->NMBENTUK.'</option>' : ' <option selected disabled> -- Pilih Konflik --</option>' ; ?>
                        <?php foreach ($konflik as $konflik): ?>
                          <option value="<?=$konflik->IDBENTUK?>"> <?=$konflik->NMBENTUK?></option>
                         <?php endforeach; ?>
@@ -104,7 +104,7 @@ var baseLayers = [
                 "fillColor" : "<?=$row->WARNAK; ?>",
                 "weight": 1,
                 "opacity": 1,
-                "fillOpacity":2
+                "fillOpacity":<?=setOpacity($total,$jml_konflik->JMLKONFLIK); ?>
             };
 var customPopup = {"Nama Wilayah ": "Soe",};
 

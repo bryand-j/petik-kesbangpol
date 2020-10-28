@@ -13,6 +13,7 @@ class Config extends CI_Controller {
 		$data['title']	 = "PeranKo | Pengaturan";
 		$this->load->library('session');	
 		$data['kab'] = $this->db->get('m_slide')->result();
+		$data['kabupaten'] = $this->db->get('m_kabkota')->result();
 		$data['slide1'] = $this->db->query("SELECT * from m_slide WHERE NOSLIDE != '1'")->result();
 		$data['slide2'] = $this->db->query("SELECT * from m_slide WHERE NOSLIDE != '2'")->result();
 		$data['slide3'] = $this->db->query("SELECT * from m_slide WHERE NOSLIDE != '3'")->result();
@@ -474,14 +475,25 @@ class Config extends CI_Controller {
             redirect('Admin/config');	
 	}
 	public function adduser(){
-		$level = $this->input->post('level');
+		$level="";
+		$wil="";
+		$lv = $this->input->post('level');
 		$nama = $this->input->post('nama');
 		$email = $this->input->post('email');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
+		if ($lv =="Admin") {
+			$level=$lv;
+			$wil="";
+		}
+		else{
+			$level="Operator";
+			$wil=$lv;
+		}
 
 		$data = array (
 			'LEVEL' => $level,
+			'IDWIL'=>$wil,
 			'NMUSER' => $nama,
 			'USERNAME' => $username,
 			'PASSWORD' => $password,

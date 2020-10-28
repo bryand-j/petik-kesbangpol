@@ -22,7 +22,7 @@ class Dashboard extends CI_Controller {
 	{
 		$data['hari'] = $this->db->query("SELECT
 											  tr_angket.NMANGKET   AS NAMA,
-											  m_status.NMSTATUS    AS STATUS,
+											  m_status.IDSTATUS    AS STATUS,
 											  m_kecamatan.NMKEC    AS KECAMATAN,
 											  m_kabkota.NMWIL    AS KABUPATEN,
 											  m_btkangket.NMBENTUK AS BIDANG,
@@ -38,7 +38,7 @@ class Dashboard extends CI_Controller {
 											     ON m_status.IDSTATUS = tr_angket.STATUS WHERE DATE(tr_angket.TGLANGKET) = DATE(NOW())")->result();
 		$data['minggu'] = $this->db->query("SELECT
 												  tr_angket.NMANGKET   AS NAMA,
-												  m_status.NMSTATUS    AS STATUS,
+												  m_status.IDSTATUS    AS STATUS,
 												  m_kecamatan.NMKEC    AS KECAMATAN,
 												  m_kabkota.NMWIL    AS KABUPATEN,
 												  m_btkangket.NMBENTUK AS BIDANG,
@@ -54,7 +54,7 @@ class Dashboard extends CI_Controller {
 												     ON m_status.IDSTATUS = tr_angket.STATUS WHERE WEEK(tr_angket.TGLANGKET) = WEEK(NOW())")->result();
 		$data['bulan'] = $this->db->query("SELECT
 													  tr_angket.NMANGKET   AS NAMA,
-													  m_status.NMSTATUS    AS STATUS,
+													  m_status.IDSTATUS    AS STATUS,
 													  m_kecamatan.NMKEC    AS KECAMATAN,
 													  m_kabkota.NMWIL    AS KABUPATEN,
 													  m_btkangket.NMBENTUK AS BIDANG,

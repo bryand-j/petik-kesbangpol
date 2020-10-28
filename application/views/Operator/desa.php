@@ -168,16 +168,17 @@
 
   
 
-         var kab ="<?php echo $this->session->userdata('IDWIL') ; ?>";   
-         // alert(kab);
-          $.ajax({
-          type:'POST',
-           url: "<?php echo site_url('Operator/konflik/keckab')?>",
-           data:'kab='+kab,
-          success: function(response){            
-             $('#fl-kec').html(response);                     
-          }
-        });      
+       var kab ="<?php echo $this->session->userdata('IDWIL') ; ?>";   
+       // alert(kab);
+        $.ajax({
+        type:'POST',
+         url: "<?php echo site_url('Operator/konflik/keckab')?>",
+         data:'kab='+kab,
+        success: function(response){
+
+           $(response).appendTo('#fl-kec');                     
+        }
+      });      
     
 
  

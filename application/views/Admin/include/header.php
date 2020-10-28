@@ -23,45 +23,60 @@
         
 	<div id="kt_header_menu" class="kt-header-menu kt-header-menu-mobile "  >
         <ul class="kt-menu__nav ">
-        <li class="kt-menu__item  kt-menu__item--open  kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open "  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Dashboard" class="kt-menu__link "><span class="kt-menu__link-text">Dashboard</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+        <li class="kt-menu__item  kt-menu__item--open  kt-menu__item--submenu kt-menu__item--rel kt-menu__item--open "  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Dashboard" class="kt-menu__link "><span class="">Dashboard</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
             	
         </li>       
-        <li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel "  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Wilayah</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+        <li class="kt-menu__item wilayah-drop  kt-menu__item--submenu kt-menu__item--rel "  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="">Wilayah</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
         	<div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
         		<ul class="kt-menu__subnav">
-        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/desa" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="kt-menu__link-text">Desa/Kelurahan</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a></li>
-        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/kecamatan" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="kt-menu__link-text">Kecamatan</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a></li>
-        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/kabupaten" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="kt-menu__link-text">Kabupaten</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/desa" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="">Desa/Kelurahan</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a></li>
+        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/kecamatan" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="">Kecamatan</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a></li>
+        			<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/kabupaten" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-file"></i><span class="">Kabupaten</span></i><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
         			</li>
 				</ul></div>
 			</li>
-			<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+			<li class="kt-menu__item konflik-drop  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="t">Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 				<div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
 					<ul class="kt-menu__subnav">
-						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/bidang" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-layers"></i><span class="kt-menu__link-text">Bidang Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/bidang" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-layers"></i><span class="">Bidang Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 						</li>
-                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/sub_bidang" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-layers"></i><span class="kt-menu__link-text">Sub Bidang Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/sub_bidang" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-layers"></i><span class="">Sub Bidang Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
                         </li>
-						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/status" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-correct"></i><span class="kt-menu__link-text">Status Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/status" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-correct"></i><span class="">Status Konflik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 					</li>
 				</ul></div>
 			</li>
-			<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="kt-menu__link-text">Pemilu</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+			<li class="kt-menu__item pemilu-drop  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="">Pemilu</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 				<div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
 					<ul class="kt-menu__subnav">
-						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/tahun" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-calendar-9"></i><span class="kt-menu__link-text">Data Tahun</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/tahun" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-calendar-9"></i><span class="">Data Tahun</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 						</li>
-						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/parpol" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-rotate"></i><span class="kt-menu__link-text">Data Partai Politik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+						<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/parpol" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-rotate"></i><span class="">Data Partai Politik</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 					</li>
-					<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/pemilu" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-browser-2"></i><span class="kt-menu__link-text">Data Pemilu</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+					<li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/pemilu" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-browser-2"></i><span class="">Data Pemilu</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 					</li>
 				</ul></div>
 			</li>
-				<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/konflik" class="kt-menu__link "><span class="kt-menu__link-text">Data</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-				</li>
-				<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/berita" class="kt-menu__link "><span class="kt-menu__link-text">Berita</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
-				</li>        
-			</ul>
+			<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/konflik" class="kt-menu__link "><span class="">Data</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+			</li>
+<!--             <li class="kt-menu__item pemilu-drop  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="javascript:;" class="kt-menu__link kt-menu__toggle"><span class="">Orang_Asing</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                <div class="kt-menu__submenu kt-menu__submenu--classic kt-menu__submenu--left">
+                    <ul class="kt-menu__subnav">
+                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Bilatral" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-calendar-9"></i><span class="">Lembaga Bilatral</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Multilatral" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-calendar-9"></i><span class="">Lembaga Multilatral</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Tk_asing" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-rotate"></i><span class="">Tenaga Kerja Asing</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        </li>
+                        <li class="kt-menu__item  kt-menu__item--submenu"  data-ktmenu-submenu-toggle="hover" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/Jurnalis_asing" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-rotate"></i><span class="">Kunjungan Jurnalis Asing</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </li> -->
+			<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item--rel"  data-ktmenu-submenu-toggle="click" aria-haspopup="true"><a  href="<?php echo base_url()?>Admin/berita" class="kt-menu__link "><span class="">Berita</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+			</li>        
+		</ul>
     </div>
 </div>
 <!-- end: Header Menu -->		

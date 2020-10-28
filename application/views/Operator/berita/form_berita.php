@@ -33,19 +33,20 @@
 		</div>
 	</div>
 	<!--begin::Form-->
-	<form class="kt-form kt-form--fit kt-form--label-right" method="post" action="<?=base_url()?>operator/berita/add">
+	<form class="kt-form--label-right" method="post" action="<?=base_url()?>operator/berita/add">
 		<div class="kt-portlet__body">
 
 			<div class="form-group ">
 				<label>Pilih Konflik</label>	
 				
-				<select class="form-control kt-select2" id="kt_select2_1" name="id">
+				<select class="form-control" name="id" id="id-ang">
 						<option selected="" disabled="">Pilih Konflik</option>
 					<?php foreach ($konflik as $key): ?>
 						<option value="<?=$key->IDTRXANGKET?>"><?=$key->TGLANGKET?> - <?=$key->NMANGKET?></option>	
 					<?php endforeach ?>
 				    
 				</select>
+
 				
 			</div>
 			<div class="form-group">
@@ -62,7 +63,7 @@
 		<div class="kt-portlet__foot">
 			<div class="row">
 				<div class="col-lg-9">
-					<button type="submit" class="btn btn-brand">Simpan</button>
+					<button type="submit" class="btn btn-brand cekdata">Simpan</button>
 					<a href="<?=base_url()?>operator/berita/index" class="btn btn-secondary">Batal</a>
 				</div>
 			</div>
@@ -81,15 +82,5 @@
 </div>
 </div>
 </div>
-	
-<!-- end:: Page -->
 
-<script src="<?php echo base_url()?>ssets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
-<script src="<?php echo base_url()?>assets/js/scripts.bundle.js" type="text/javascript"></script>
-
-
-<!--begin::Page Scripts(used by this page) -->
-<script src="<?php echo base_url()?>assets/js/pages/crud/forms/editors/summernote.js" type="text/javascript"></script>
-<script src="<?php echo base_url()?>assets/js/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
- <!--end::Page Scripts -->
  

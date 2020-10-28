@@ -122,19 +122,7 @@
     	<!--begin::Global Theme Bundle(used by all pages) -->
     	    	   <script src="<?php echo base_url()?>/assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>
                    <script type="text/javascript">
-    $(document).ready(function(){
-
-
-    var loc = window.location.href;
-    $('.kt_header_menu li' ).each(function(){
-        if (this 'a' .href=loc){
-            $(this).addClass('kt-menu__item--here');
-            console.log(this);
-            console.log('jadi');
-        }
-    });
-    
-    });
+  
 
 
 </script>
@@ -155,20 +143,104 @@
                             <script src="<?php echo base_url()?>/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
                         <!--end::Page Vendors -->
                           <script src="<?php echo base_url()?>/assets/js/pages/crud/datatables/advanced/column-rendering.js" type="text/javascript"></script>
-                            <script src="../../../../../themes/metronic/theme/default/demo9/dist/assets/js/pages/crud/datatables/data-sources/html.js" type="text/javascript"></script>
-                    <!--begin::Page Scripts(used by this page) -->
-                        <!--     <script src="<?php echo base_url()?>/assets/js/pages/crud/datatables/basic/basic.js" type="text/javascript"></script> -->
-                        <!--end::Page Scripts -->
+                            
                         <script src="<?php echo base_url()?>/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
                          <?php echo $this->session->flashdata('message'); ?>  
                           <script src="<?php echo base_url()?>/assets/js/pages/crud/forms/widgets/select2.js" type="text/javascript"></script>
-                         <!-- <script src="<?php echo base_url()?>/assets/js/pages/crud/metronic-datatable/base/data-local.js" type="text/javascript"></script> -->
-                       <!--   <script type="text/javascript" src="<?php echo base_url()?>assets/data/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/data/datatables.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/data/dataTables.bootstrap4.min.js"></script> -->    
-
+                         
             </body>
-    <!-- end::Body -->
+    
+<script type="text/javascript">
 
-<!-- Mirrored from keenthemes.com/metronic/preview/demo9/dashboards/fluid.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 25 Feb 2020 16:11:44 GMT -->
+  var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
+  var  berita = location.pathname.split("/").slice(-2)[0];
+  var editber= location.pathname.split("/").slice(-3)[0];
+      
+  $('.kt-menu__item a[href~="'+location.href+'"]').addClass('nav-active');
+
+  if ((berita=="berita") | (editber=="berita")){
+
+  $('.kt-menu__item a[href~="<?php echo base_url()?>Admin/berita"]').addClass('nav-active');
+  }
+
+   switch (current) {
+          case "desa":
+             
+          case "kecamatan":
+
+          case "kabupaten":
+            $('.wilayah-drop a[href~="javascript:;"]').addClass('nav-active');
+          break;
+
+          case "bidang":
+             
+          case "sub_bidang":
+
+          case "status":
+            $('.konflik-drop a[href~="javascript:;"]').addClass('nav-active');
+          break;
+
+          case "tahun":
+             
+          case "parpol":
+
+          case "pemilu":
+            $('.pemilu-drop a[href~="javascript:;"]').addClass('nav-active');
+          break;
+
+             
+        
+  }
+</script><!-- 
+<script src="<?=base_url()?>assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script> -->
+<script type="text/javascript">
+  function set(url, id, data) {
+  var set = $.ajax({
+    type: "GET",
+    url: url,
+    dataType: "JSON",
+    cache: false, 
+    data: {
+      id: id
+    },
+    success: data,
+  });
+  return set;
+  }
+
+  function notif(judul, text) {
+    let type, icon;
+    if (judul == "success") {
+      type = 'success';
+      icon = 'flaticon2-correct';
+    } else if (judul == "error") {
+      type = 'warning';
+      icon = 'flaticon2-cancel-music';
+    }
+    var not = $.notify({
+      // options
+      icon: icon,
+      title: judul,
+      message: text
+    }, {
+      // settings
+      type: type,
+      allow_dismiss: true,
+      newest_on_top: true,
+      placement: {
+        from: "bottom",
+        align: "right"
+      },
+      icon_type: 'class',
+      delay: 3000,
+      timer: 2000,
+      animate: {
+        enter: 'animated fadeInUp',
+        exit: 'animated fadeOutDown'
+      },
+    });
+    return not;
+  }
+</script>
+
 </html>

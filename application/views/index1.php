@@ -151,7 +151,7 @@
                 <h6 class="card-title"> <?=substr($key->NMANGKET,0,50)."..."?></h6>
                 <p class="card-text" style="font-size: 13px;"><?=substr($key->DESKRIPSI,0,70)."..."?></p>
                 <p class="card-text"><small class=""><?=$key->TGLANGKET?> - <?=$key->NMWIL?></small></p>
-                <a href="detail?berita=<?=$key->IDTRXANGKET?>" class="btn btn-primary btn-sm" style="bottom: 10px; right: 10px; position: absolute;">Baca selengkapnya</a>
+                <a href="<?php base_url()?>home/detail?berita=<?=$key->IDTRXANGKET?>" class="btn btn-primary btn-sm" style="bottom: 10px; right: 10px; position: absolute;">Baca selengkapnya</a>
               </div>
             </div>
           </div>

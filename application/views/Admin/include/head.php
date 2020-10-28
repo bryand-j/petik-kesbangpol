@@ -38,6 +38,13 @@
 
         <!-- Hotjar Tracking Code for keenthemes.com -->
       <style type="text/css">
+         .kt-menu__nav .nav-active{
+          background-color: #f4f4f8;
+          color: #591df1 !important;
+        }
+        .kt-menu__nav a{
+          color: #5e6383
+        }
         div#kt_table_filter.dataTables_filter{
             float: right;
           }

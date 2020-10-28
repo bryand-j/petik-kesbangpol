@@ -38,16 +38,29 @@ class Konflik extends CI_Controller {
         } 	
         $output = array(         
             "data" => $data,
-        ); 
+        );
+        
         $data['title']	 = "PeranKo | Data Konflik";     
 		$data['kab'] = $this->db->get('m_kabkota')->result();
-		$data['bidang'] = $this->db->get('m_btkangket')->result();	
+		// $data['bidang'] = $this->db->query("select * FROM m_btkangket where type='$type'")->result();	
 		$data['status'] = $this->db->get('m_status')->result();		
 		$this->load->view('Admin/include/head', $data);
 		$this->load->view('Admin/include/header');
 		$this->load->view('Admin/data-konflik',$data);
 		$this->load->view('Admin/include/footer');
 	}
+	public function ubahType()
+	{
+		$type= $this->session->userdata('type');
+		$data=$this->db->query("select * FROM m_btkangket where type='$type'")->result();
+		$options="";
+		foreach ($data as $key) {
+			$options .="<option value='$key->IDBENTUK'>$key->NMBENTUK</option>";
+		}
+		echo $options;
+
+	}
+
 	public function input(){
 		$judul = $this->input->post('judul');
 		$kec = $this->input->post('kec');
@@ -119,6 +132,8 @@ class Konflik extends CI_Controller {
             $row[] = $no;
             $row[] = $field->NMANGKET;
             $row[] = $field->NMBENTUK;
+            $row[] = $field->DESKRIPSI;
+            $row[] = $field->NMWIL;
             $row[] = $field->NMKEC;
             $row[] = $field->NMDESA;
             $row[] = $field->TGLANGKET;
@@ -131,7 +146,7 @@ class Konflik extends CI_Controller {
                                 <a class='dropdown-item edit_btn' href='javascript:void(0)'  data-toggle='modal' data-id='".$field->IDTRXANGKET."' data-nm='".$field->NMANGKET."' data-idbn='".$field->IDBENTUK."' data-bn='".$field->NMBENTUK."'  data-idkab='".$field->IDWIL."' data-iddesa='".$field->IDDESA."' data-desa='".$field->NMDESA."' data-kab='".$field->NMWIL."'  data-idkec='".$field->IDKEC."' data-kec='".$field->NMKEC."' data-dt='".$field->DESKRIPSI."'  data-tgl='".$field->TGLANGKET."' data-idsts='".$field->STATUS."'  data-sts='".$field->NMSTATUS."'><i class='la la-pencil-square  '></i> Edit</a>
                                 
                                 <a class='dropdown-item delete_btn' href='javascript:void(0)' data-toggle='modal' data-id='".$field->IDTRXANGKET."' data-target='#delete'><i class='la la-trash-o  '></i> Hapus</a>
-                                 <a class='dropdown-item delete_btn' href='javascript:void(0)' data-toggle='modal' data-id='".$field->IDTRXANGKET."' data-target='#delete'><i class='flaticon-file'></i> Detail</a>
+                                
                             </div>
                         </div>";            
             $data[] = $row;

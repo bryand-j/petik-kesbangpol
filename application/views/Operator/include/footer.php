@@ -29,15 +29,7 @@
     </div>
     <div class="kt-demo-panel__body">
         <div class="kt-demo-panel__item ">
-                   <!--  <div class="kt-demo-panel__item-title">
-                        Demo 1
-                    </div> -->
-                    <!-- <div class="kt-demo-panel__item-preview"> -->
-                    <!--     <img src="../../themes/metronic/theme/default/demo9/dist/assets/media/demos/preview/demo1.jpg" alt=""/>
-                        <div class="kt-demo-panel__item-preview-overlay">
-                            <a href="https://keenthemes.com/metronic/preview/demo1/index.html" class="btn btn-brand btn-elevate " target="_blank">Default</a>
-                            <a href="https://keenthemes.com/metronic/preview/demo1/rtl/index.html" class="btn btn-light btn-elevate" target="_blank">RTL Version</a>
-                        </div> -->
+                   
                            <?php                                 
 
                           $data = $this->db->query("SELECT
@@ -109,15 +101,18 @@
 <!-- end::Sticky Toolbar -->
         <!-- begin::Demo Panel -->
 
-<!--  -->
-<!-- end::Demo Panel -->
-    
 
-        <!-- begin::Global Config(global config for global JS sciprts) -->
-        <script>
-            var KTAppOptions = {"colors":{"state":{"brand":"#591df1","light":"#ffffff","dark":"#282a3c","primary":"#5867dd","success":"#34bfa3","info":"#36a3f7","warning":"#ffb822","danger":"#fd3995"},"base":{"label":["#c5cbe3","#a1a8c3","#3d4465","#3e4466"],"shape":["#f0f3ff","#d9dffa","#afb4d4","#646c9a"]}}};
-        </script>
-        <!-- end::Global Config -->
+<div class="data-text">
+  
+</div>
+
+ 
+
+<!-- begin::Global Config(global config for global JS sciprts) -->
+<script>
+    var KTAppOptions = {"colors":{"state":{"brand":"#591df1","light":"#ffffff","dark":"#282a3c","primary":"#5867dd","success":"#34bfa3","info":"#36a3f7","warning":"#ffb822","danger":"#fd3995"},"base":{"label":["#c5cbe3","#a1a8c3","#3d4465","#3e4466"],"shape":["#f0f3ff","#d9dffa","#afb4d4","#646c9a"]}}};
+</script>
+<!-- end::Global Config -->
 
 <!--begin::Global Theme Bundle(used by all pages) -->
 <script src="<?php echo base_url()?>/assets/plugins/global/plugins.bundle.js" type="text/javascript"></script>            
@@ -128,64 +123,51 @@
 <script src="<?php echo base_url()?>/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 <script src="<?php echo base_url()?>/assets/js/pages/components/extended/toastr.js" type="text/javascript"></script>
 <script src="<?php echo base_url()?>/assets/js/pages/components/extended/sweetalert2.js" type="text/javascript"></script>
-             
-                    <!--begin::Page Scripts(used by this page) -->
 <script src="<?php echo base_url()?>/assets/js/pages/dashboard.js" type="text/javascript"></script>
-                        <!--end::Page Scripts -->
-                          <!--begin::Page Vendors(used by this page) -->
-                            <script src="<?php echo base_url()?>/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
-                        <!--end::Page Vendors -->
-                          <script src="<?php echo base_url()?>/assets/js/pages/crud/datatables/advanced/column-rendering.js" type="text/javascript"></script>
-                            <script src="../../../../../themes/metronic/theme/default/demo9/dist/assets/js/pages/crud/datatables/data-sources/html.js" type="text/javascript"></script>
-                    <!--begin::Page Scripts(used by this page) -->
-                        <!--     <script src="<?php echo base_url()?>/assets/js/pages/crud/datatables/basic/basic.js" type="text/javascript"></script> -->
-                        <!--end::Page Scripts -->
-                        <script src="<?php echo base_url()?>/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>/assets/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+<script src="<?php echo base_url()?>/assets/js/pages/crud/datatables/advanced/column-rendering.js"></script>
+<script src="<?php echo base_url()?>/assets/js/pages/crud/forms/widgets/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url()?>assets/js/pages/crud/forms/editors/summernote.js" type="text/javascript"></script>
+<?php echo $this->session->flashdata('message'); ?>  
+                        
+<script type="text/javascript">
 
-                            
-                        <!--end::Page Scripts -->
-                         <?php echo $this->session->flashdata('message'); ?>  
-                          <
-                         <!-- <script src="<?php echo base_url()?>/assets/js/pages/crud/metronic-datatable/base/data-local.js" type="text/javascript"></script> -->
-                       <!--   <script type="text/javascript" src="<?php echo base_url()?>assets/data/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/data/datatables.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>assets/data/dataTables.bootstrap4.min.js"></script> -->  
+  var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
+  var  berita = location.pathname.split("/").slice(-2)[0];
+  var editber= location.pathname.split("/").slice(-3)[0];
+      
+  $('.kt-menu__item a[href~="'+location.href+'"]').addClass('nav-active');
 
-      <script type="text/javascript">
+  if ((berita=="berita") | (editber=="berita")){
 
-        var current = location.pathname.split("/").slice(-1)[0].replace(/^\/|\/$/g, '');
-        var  berita = location.pathname.split("/").slice(-2)[0];
-        var editber= location.pathname.split("/").slice(-3)[0];
-            
-        $('.kt-menu__item a[href~="'+location.href+'"]').addClass('nav-active');
+  $('.kt-menu__item a[href~="<?php echo base_url()?>Operator/berita"]').addClass('nav-active');
+  }
 
-        if ((berita=="berita") | (editber=="berita")){
+   switch (current) {
+          case "desa":
+             
+          case "kecamatan":
 
-        $('.kt-menu__item a[href~="<?php echo base_url()?>Operator/berita"]').addClass('nav-active');
-        }
+          case "kabupaten":
+            $('.wilayah-drop a[href~="javascript:;"]').addClass('nav-active');
+          break;
 
-         switch (current) {
-                case "desa":
-                   
-                case "kecamatan":
+          case "bidang":
+             
+          case "sub_bidang":
 
-                case "kabupaten":
-                  $('.wilayah-drop a[href~="javascript:;"]').addClass('nav-active');
-                break;
+          case "status":
+            $('.konflik-drop a[href~="javascript:;"]').addClass('nav-active');
+          break;
 
-                case "bidang":
-                   
-                case "sub_bidang":
+             
+        
+  }
+</script>
 
-                case "status":
-                  $('.konflik-drop a[href~="javascript:;"]').addClass('nav-active');
-                break;
 
-                   
-              
-            }
-      </script>  
+</script>  
 
-  </body>
+</body>
    
 </html>

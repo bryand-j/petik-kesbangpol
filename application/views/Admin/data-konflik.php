@@ -1,5 +1,5 @@
 
-							
+              
 <!-- begin:: Subheader -->
 <div class="kt-subheader   kt-grid__item" id="kt_subheader">
     <div class="kt-container ">
@@ -9,29 +9,37 @@
 <!-- end:: Subheader -->
 
 <!-- begin:: Content -->
-	<div class="kt-container  kt-grid__item kt-grid__item--fluid">
-	
+  <div class="kt-container  kt-grid__item kt-grid__item--fluid">
+  
 <div class="kt-portlet kt-portlet--mobile">
-	<div class="kt-portlet__head kt-portlet__head--lg">
-		<div class="kt-portlet__head-label">
-			<span class="kt-portlet__head-icon">
-				<i class="kt-font-brand flaticon2-line-chart"></i>
-			</span>
-			<h3 class="kt-portlet__head-title">
-				Data Konflik
-			</h3>
-		</div>
-		<div class="kt-portlet__head-toolbar">
+  <div class="kt-portlet__head kt-portlet__head--lg">
+    <!-- <div class="kt-portlet__head-label">
+      <span class="kt-portlet__head-icon">
+        <i class="kt-font-brand flaticon2-line-chart"></i>
+      </span>
+      <h3 class="kt-portlet__head-title">
+        Data Konflik
+      </h3>
+    </div> -->
+    <ul class="nav nav-tabs  nav-tabs-line nav-tabs-line-success" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="data_konflik" data-toggle="tab" href="#kt_tabs_7_1" role="tab"><i class="la la-cloud-upload"></i> Data Konflik</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="orang_asing" data-toggle="tab" href="#kt_tabs_7_3" role="tab"><i class="la la-puzzle-piece"></i>Data Orang Asing</a>
+        </li>
+    </ul> 
+    <div class="kt-portlet__head-toolbar">
             <div class="kt-portlet__head-wrapper">
-<!-- 	<a href="#" class="btn btn-clean btn-icon-sm">
-		<i class="la la-long-arrow-left"></i>
-		Back
-	</a>
-	&nbsp; -->
-	<div class="dropdown dropdown-inline">
-		<button type="button" class="btn btn-outline-primary  btn-elevate btn-elevate-air btn-icon-sm btn-sm" title="Tambah Data Kecamatan" data-toggle="modal" data-target="#kinput">
-			<i class="flaticon-file-1"></i> Tambah Data
-		</button>
+<!--  <a href="#" class="btn btn-clean btn-icon-sm">
+    <i class="la la-long-arrow-left"></i>
+    Back
+  </a>
+  &nbsp; -->
+  <div class="dropdown dropdown-inline">
+    <button type="button" class="btn btn-outline-primary  btn-elevate btn-elevate-air btn-icon-sm btn-sm" title="Tambah Data Kecamatan" data-toggle="modal" data-target="#kinput">
+      <i class="flaticon-file-1"></i> Tambah Data
+    </button>
 <form method="POST" style="float: left; margin-right: 10px;" action="<?php echo base_url()?>Admin/Data/pdf" target="_blank">
   <input type="hidden" id="ct-wilayah" name="wilayah">
   <input type="hidden" id="ct-tahun" name="tahun">
@@ -40,10 +48,10 @@
       <i class="flaticon-file-1"></i> Laporan
     </button>
 </form>
-	</div>
+  </div>
 </div>
-		</div>
-	</div>
+    </div>
+  </div>
 
 
 <div class="modal fade" id="kinput" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -55,7 +63,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="input">
+                <form>
                     
                     <div class="form-group">
                         <label for="message-text" class="form-control-label">Wilayah Kab/Kota</label>
@@ -88,11 +96,8 @@
                     </div>
                    <div class="form-group">
                      <label for="message-text" class="form-control-label">Bidang Konflik</label>
-                         <select class="form-control" id="in-bidang">   
-                          <option value=""> -- Pilih Bidang Konflik --</option>                          
-                            <?php foreach ($bidang as $row ): ?>  
-                                <option value="<?=$row->IDBENTUK?>"><?=$row->NMBENTUK?></option>                               
-                                 <?php endforeach ?>
+                         <select class="form-control op" id="in-bidang">   
+                          
                             </select>
                     </div>  
                      <label for="message-text" class="form-control-label">Tanggal Konflik</label>
@@ -181,12 +186,8 @@
                     <br>
                    <div class="form-group">
                      <label for="message-text" class="form-control-label">Status</label>
-                         <select class="form-control" id="ed-status">  
-                          <option value="" id="sl-st" selected></option>                           
-                            <?php foreach ($status as $row ): ?>  
-                                <option value="<?=$row->IDSTATUS?>"><?=$row->NMSTATUS?></option>                               
-                                 <?php endforeach ?>
-                            </select>
+                         <select class="form-control op" id="ed-status">  
+                          </select>
                     </div> 
                 </form>
             </div>
@@ -223,87 +224,93 @@
 
 
 
-	<div class="kt-portlet__body">
-		<!--begin: Search Form -->
-        <div class="kt-form kt-form--label-right kt-margin-t-0 kt-margin-b-0">
-	<div class="row align-items-center">
-		<div class="col-xl-8 order-2 order-xl-1">
-			<div class="row align-items-center">								
-                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-                    <div class="kt-form__group kt-form__group--inline">
-                        <div class="kt-form__label">
-                            <label>Wilayah </label>
+  <div class="kt-portlet__body">
+    <!--begin: Search Form -->
+  <div class="kt-form kt-form--label-right kt-margin-t-0 kt-margin-b-0">
+    <div class="row align-items-center">
+      <div class="col-xl-8 order-2 order-xl-1">
+        <div class="row align-items-center">                
+                  <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                      <div class="kt-form__group kt-form__group--inline">
+                          <div class="kt-form__label">
+                              <label>Wilayah </label>
+                          </div>
+                          <div class="kt-form__control">
+                           <select class="form-control" id="wilayah">
+                              <option value="">All</option>
+                              <?php foreach ($kab as $row ): ?>  
+                                  <option value="<?=$row->NMWIL?>"><?=$row->NMWIL?></option>                               
+                                   <?php endforeach ?>
+                              </select>
+                          </div>                      
+                      </div>
+                  </div>
+                   <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                      <div class="kt-form__group kt-form__group--inline">
+                          <div class="kt-form__label">
+                              <label>Bidang </label>
+                          </div>
+                          <div class="kt-form__control">
+                           <select class="form-control" id="bidang">
+                              <option value="">All</option>
+                              <?php foreach ($bidang as $row ): ?>  
+                                  <option value="<?=$row->NMBENTUK?>"><?=$row->NMBENTUK?></option>                               
+                                   <?php endforeach ?>
+                              </select>
+                          </div>                      
+                      </div>
+                  </div>
+                  <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
+                      <div class="kt-form__group kt-form__group--inline">
+                          <div class="kt-form__label">
+                              <label>Tahun </label>
+                          </div>
+                          <div class="kt-form__control">
+                           <select class="form-control" id="tahun">
+                              <option value="">All</option>
+                          
+                          <?php
+                          $tgla=getdate();
+                          for ($a=$tgla['year']; $a>= 2018;$a--)
+                          {?>                          
+                            <option value="<?php echo $a; ?>"><?php echo $a; ?></option>   
+                          <?php  } ?>                                                               
+                              </select>
+                          </div>                      
+                      </div>
+                  </div>
+                
                         </div>
-                        <div class="kt-form__control">
-                         <select class="form-control" id="wilayah">
-                            <option value="">All</option>
-                            <?php foreach ($kab as $row ): ?>  
-                                <option value="<?=$row->NMWIL?>"><?=$row->NMWIL?></option>                               
-                                 <?php endforeach ?>
-                            </select>
-                        </div>                      
-                    </div>
-                </div>
-                 <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-                    <div class="kt-form__group kt-form__group--inline">
-                        <div class="kt-form__label">
-                            <label>Bidang </label>
-                        </div>
-                        <div class="kt-form__control">
-                         <select class="form-control" id="bidang">
-                            <option value="">All</option>
-                            <?php foreach ($bidang as $row ): ?>  
-                                <option value="<?=$row->NMBENTUK?>"><?=$row->NMBENTUK?></option>                               
-                                 <?php endforeach ?>
-                            </select>
-                        </div>                      
-                    </div>
-                </div>
-                <div class="col-md-4 kt-margin-b-20-tablet-and-mobile">
-                    <div class="kt-form__group kt-form__group--inline">
-                        <div class="kt-form__label">
-                            <label>Tahun </label>
-                        </div>
-                        <div class="kt-form__control">
-                         <select class="form-control" id="tahun">
-                            <option value="">All</option>                            
-                                <option value="2018">2018</option>   
-                                <option value="2019">2019</option>   
-                                <option value="2020">2020</option>                                                               
-                            </select>
-                        </div>                      
-                    </div>
-                </div>
-              
-                			</div>
-                             <center>
-                <!-- <div class="col-md-3 kt-margin-b-20-tablet-and-mobile"> -->
-                    <!-- <div class="kt-form__group kt-form__group--inline"> -->
-                        <br>
-                        <button type="submit" id="filter" class="btn btn-warning btn-icon-sm btn-sm" title="Tambah Data Kecamatan">
-                            <i class="flaticon2-search-1"></i> Tampilkan
-                        </button>
-                    <!-- </div> -->
-                <!-- </div> -->
-                </center>
-                <!-- <hr> -->
-		</div> 
-	<!-- 	<div class="col-xl-4 order-1 order-xl-2 kt-align-right">
-			<a href="#" class="btn btn-default kt-hidden">
-				<i class="la la-cart-plus"></i> New Order
-			</a>
-			<div class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
-		</div> -->
-	</div>
-</div>
+                               <center>
+                  <!-- <div class="col-md-3 kt-margin-b-20-tablet-and-mobile"> -->
+                      <!-- <div class="kt-form__group kt-form__group--inline"> -->
+                          <br>
+                          <button type="submit" id="filter" class="btn btn-warning btn-icon-sm btn-sm" title="Tambah Data Kecamatan">
+                              <i class="flaticon2-search-1"></i> Tampilkan
+                          </button>
+                      <!-- </div> -->
+                  <!-- </div> -->
+                  </center>
+                  <!-- <hr> -->
+      </div> 
+    <!--  <div class="col-xl-4 order-1 order-xl-2 kt-align-right">
+        <a href="#" class="btn btn-default kt-hidden">
+          <i class="la la-cart-plus"></i> New Order
+        </a>
+        <div class="kt-separator kt-separator--border-dashed kt-separator--space-lg d-xl-none"></div>
+      </div> -->
+    </div>
+  </div>
          <div class="table-responsive">  
         <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table">
             <!-- <table id="example" class="table table-striped table-bordered table-responsive" > -->
                 <thead>
                     <tr style="width: auto;">
                         <th>No</th>
-                        <th>Nama Konflik</th>                     
-                        <th>Bidang</th>     
+                        <th>Nama Konflik</th>
+                        <th>Deskripsi</th>                     
+                        <th>Bidang</th>
+                        <th>Kab/Kota</th>      
                         <th>Kecamatan</th>
                         <th>Desa/Kelurahan</th>  
                         <th>Tanggal</th> 
@@ -316,14 +323,14 @@
                 </tbody>
                
             </table>    </div> 
-		<!--end: Search Form -->
-	</div>  
+    <!--end: Search Form -->
+  </div>  
 </div>
 
 
-	</div>
-<!-- end:: Content -->					</div>
-				</div>
+  </div>
+<!-- end:: Content -->          </div>
+        </div>
                 <script type="text/javascript" src="<?php echo base_url()?>assets/data/jquery-3.3.1.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/data/datatables.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>assets/data/dataTables.bootstrap4.min.js"></script>
@@ -331,36 +338,13 @@
     
         
     var table;
-     var tables;
+    var tables;
+
      
     $(document).ready(function() {     
        
       load();
-      pdf();  
-      function pdf(){
-        $('#filter').click(function(){
-           wilayah = $('#wilayah').val();    
-           bidang = $('#bidang').val();    
-           tahun = $('#tahun').val();  
-
-           $('#ct-wilayah').val(wilayah)
-           $('#ct-tahun').val(tahun)
-           $('#ct-bidang').val(bidang)
-
-       $.ajax({
-            type:'POST',
-           url: "<?php echo site_url('Admin/Data/pdf')?>",
-           data:'wilayah='+wilayah+'&tahun='+tahun+'&bidang='+bidang,
-          success: function(response){                               
-          }
-        })    
-   })
-   }
-     $('#filter').click(function(){
-        pdf(); 
-     })
-
-
+    
        function load(){
        table = $('#kt_table').DataTable({
             "language": {
@@ -389,16 +373,24 @@
             },
             ],
  
-        });
+      });
         
        
 
    }
-   $('#filter').click(function(){ 
-            table.ajax.reload();  
-        });
+   $('#filter').click(function(){
+
+      table.ajax.reload();
+      wilayah = $('#wilayah').val();    
+      bidang = $('#bidang').val();    
+      tahun = $('#tahun').val();  
+
+      $('#ct-wilayah').val(wilayah);
+      $('#ct-tahun').val(tahun);
+      $('#ct-bidang').val(bidang);  
+    });
    $('#save').click(function(){
-        input();
+      input();
    })
     function input(){       
       var desa = $('#in-des').val();
@@ -415,8 +407,7 @@
           success: function(response){           
             $('#kinput').modal('hide');          
              $('#kt_subheader').html(response); 
-            table.ajax.reload();  
-             $('#input').trigger("reset");              
+            table.ajax.reload();               
           }
         })        
        }  
@@ -569,6 +560,76 @@
         });  
 
     });
+$(document).ready( function(){
+   $.ajax({
+      type: "GET",
+      url: "<?php echo base_url('admin/ubahType')?>",
+      data: {
+        type: 0
+      },
+      success: function (data) {
+        table.ajax.reload();
+      }
+    });
+
+   $.ajax({
+      type: "GET",
+      url: "<?php echo base_url('Admin/konflik/ubahType')?>",
+      success: function (data) {
+        
+        $('.op').html('<option value=""> -- Pilih Bidang Konflik --</option>'+data);
+      }
+
+    });
+});
+
+  //
+  $('#orang_asing').click(function(){
+       
+        $.ajax({
+          type: "GET",
+          url: "<?php echo base_url('admin/ubahType')?>",
+          data: {
+            type: 1
+          },
+          success: function (data) {
+            table.ajax.reload();
+          }
+        });
+        $.ajax({
+      type: "GET",
+      url: "<?php echo base_url('Admin/konflik/ubahType')?>",
+      success: function (data) {
+
+        $('.op').html('<option value=""> -- Pilih Bidang Konflik --</option>'+data);
+      }
+    });
+     
+      
+  });
+  $('#data_konflik').click(function(){
+
+      
+      $.ajax({
+          type: "GET",
+          url: "<?php echo base_url('admin/ubahType')?>",
+          data: {
+            type: 0
+          },
+          success: function (data) {
+            table.ajax.reload();
+          }
+        });
+      $.ajax({
+      type: "GET",
+      url: "<?php echo base_url('Admin/konflik/ubahType')?>",
+      success: function (data) {
+
+        $('.op').html('<option value=""> -- Pilih Bidang Konflik --</option>'+data);
+      }
+    });
+  });
+
 
 
 

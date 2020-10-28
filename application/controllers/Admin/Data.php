@@ -5,9 +5,36 @@ class Data extends CI_Controller {
     {
         parent::__construct();
         $this->load->library("pdf");
-    }    
+    }
+
+    function tgl_indo($tanggal)
+    {
+        $bulan= array(
+        1 =>'January',
+            'February',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $pecahkan = explode('-', $tanggal);
+        return $pecahkan[2].' '.$bulan[ (int)$pecahkan[1] ].' '.$pecahkan[0];
+    }
+
+
     public function pdf()
     {
+        $nama=$this->db->query("select * from tb_conf where prop='nama'")->row()->value;
+        $nip=$this->db->query("select * from tb_conf where prop='nip'")->row()->value;
+        $Judul=$this->db->query("select * from tb_conf where prop='judul'")->row()->value." ";
+        $tingkat="Pembina Utama Madya";
+
         $pdf = new TCPDF("L", PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
         $pdf->setPrintFooter(false);
         $pdf->setPrintHeader(false);
@@ -26,6 +53,7 @@ class Data extends CI_Controller {
 
             if ($_POST['wilayah'] == "") {
                 $wil = "";
+                $Judul .="Provinsi NTT ";
             }
             else { $wil = $_POST['wilayah']; }
            
@@ -47,7 +75,7 @@ class Data extends CI_Controller {
         }
 
 
-        $tabel = '<h3 style="text-align:center;">Rekap  Potensi Konflik '. $wil.' '.$thn.'</h3><br><br>
+        $tabel = '<h3 style="text-align:center;">'.$Judul.' '. $wil.' '.$thn.'</h3><br><br>
         <table border="0.5pt" cellpadding="5">       
               <tr style="height:100px">
                     <th border="0.5pt" align="center" width="3.5%" style="height:22px; padding-top:25px"> <b  style="top:15px">No</b> </th>
@@ -97,6 +125,36 @@ class Data extends CI_Controller {
              
         </table>
         ';
+        if ( $this->input->post('wilayah')==='') {
+          $tabel.='<br><br><table width= "100%" >
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    
+                    <td width="70%">
+                    </td>
+                  
+                    <td width="30%" align="center">
+                      Kupang, '.$this->tgl_indo(date('Y-m-d')).' <br><br>
+                      Kepala Badan Kesbangpol<br> Provinsi Nusa Tenggara Timur,  <br>
+                      <br>
+                      <br><br>
+                      <u>'.$nama.'</u><br>
+                      '.$tingkat.'
+                      <br>
+                      Nip. '.$nip.'
+                    </td>
+                  
+                  </tr>
+          </table>';
+        }
+        
         $pdf->writeHTML($tabel);
         $pdf->Output('file-pdf-codeigniter.pdf', 'I');
 

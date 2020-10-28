@@ -543,7 +543,7 @@
                         <label for="message-text" class="form-control-label">Wilayah User</label>
                         <select class="form-control form-control-md" id="level" name="level">   
                          <option value="Admin" selected> Administrator </option>                          
-                            <?php foreach ($kab as $row ): ?>  
+                            <?php foreach ($kabupaten as $row ): ?>  
                                 <option value="<?=$row->IDWIL?>"><?=$row->NMWIL?></option>                               
                                  <?php endforeach ?>
                             </select>
@@ -562,7 +562,7 @@
                     </div>  
                     <div class="form-group">
                         <label for="recipient-name" class="form-control-label">Email</label>
-                       <input type="email" class="form-control " name="password" placeholder="">
+                       <input type="email" class="form-control " name="email" placeholder="">
                     </div>                                               
             </div>
             <div class="modal-footer">

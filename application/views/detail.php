@@ -59,5 +59,13 @@
   </main><!-- End #main -->
 
   <?php $this->load->view('include/footer'); ?>
+  <script type="text/javascript">
+    $(document).ready(function(){
+
+    $('.card-body img').addClass( 'img-fluid');
+    });
+  </script>
+
+
 
  

@@ -6,6 +6,7 @@ class Peta extends CI_Controller {
 	
 	public function index()
 	{
+
 		$data['wilayah'] = $this->db->get('m_kecamatan')->result();
 		$data['konflik'] = $this->db->get('m_btkangket')->result();
 		$data['kab'] = $this->db->get('m_kabkota')->result();
@@ -89,7 +90,7 @@ class Peta extends CI_Controller {
 		if (isset($_POST['submit'])) {
 			if($_POST['wilayah'] != "all"){				
 				$wil = $_POST['wilayah'];
-				$konf = $_POST['konflik'];
+				$konf = $this->input->post('konflik');
 
 				$cek =  $this->db->query("SELECT * FROM m_kecamatan WHERE IDKAB = '$wil'");
 
@@ -119,6 +120,10 @@ class Peta extends CI_Controller {
 				$data['kordinat'] = $dataW->KORDKAB;
 				$data['zoom'] = 8;		
 				$data['bentuk'] = $konf;
+				$dtmax = $this->db->query("SELECT MAX(a.JMLKONFLIK) AS MAXM FROM (SELECT COUNT(IDTRXANGKET) AS JMLKONFLIK FROM tr_angket 
+                    LEFT JOIN m_kecamatan ON m_kecamatan.IDKEC =tr_angket.IDKEC 
+                    LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' AND m_kecamatan.IDKAB = '$wil' GROUP BY m_kabkota.IDWIL)a")->row();
+				$data['total']= $dtmax->MAXM;
 				$this->load->view('h_peta', $data);
 				$this->load->view('peta-wilayah', $data);
 				}
@@ -129,7 +134,7 @@ class Peta extends CI_Controller {
 				$data['kab'] = $this->db->get('m_kabkota')->result();											
 				$dataJ = $this->db->query("SELECT MAX(a.JMLKONFLIK) AS MAXM FROM (SELECT COUNT(IDTRXANGKET) AS JMLKONFLIK FROM tr_angket 
                                         LEFT JOIN m_kecamatan ON m_kecamatan.IDKEC =tr_angket.IDKEC 
-                                        LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' GROUP BY m_kabkota.IDWIL)a ")->row();
+                                        LEFT JOIN m_kabkota ON m_kabkota.IDWIL = m_kecamatan.IDKAB WHERE tr_angket.IDBENTUK = '$konf' GROUP BY m_kabkota.IDWIL)a")->row();
 				if ( $dataJ->MAXM > 0) {
 					$data['max'] = $dataJ->MAXM;
 				}
@@ -141,6 +146,7 @@ class Peta extends CI_Controller {
 				$data['zoom'] = "7.4";		
 				$data['bentuk'] = $konf;				
 				$data['bentukid'] = $konf;
+				$data['total']=$dataJ->MAXM;
 				$this->load->view('h_peta', $data);
 				$this->load->view('provinsi', $data);
 			}
